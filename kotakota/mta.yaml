@@ -1,0 +1,94 @@
+_schema-version: "3.2"
+ID: sap-ui-kotakota
+description: Kotakota Web Application
+version: 0.0.1
+modules:
+- name: sap-ui-kotakota-dest-content
+  type: com.sap.application.content
+  requires:
+  - name: sap-ui-kotakota-dest-srv
+    parameters:
+      content-target: true
+  - name: sap-ui-kotakota-repo-host
+    parameters:
+      service-key:
+        name: sap-ui-kotakota-repo-host-key
+  - name: sap-ui-kotakota-uaa
+    parameters:
+      service-key:
+        name: sap-ui-kotakota-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: sap-ui-kotakota_repo_host
+          ServiceInstanceName: sap-ui-kotakota-html5-srv
+          ServiceKeyName: sap-ui-kotakota-repo-host-key
+          sap.cloud.service: sap-ui-kotakota
+        - Authentication: OAuth2UserTokenExchange
+          Name: sap-ui-kotakota_uaa
+          ServiceInstanceName: sap-ui-kotakota-xsuaa-srv
+          ServiceKeyName: sap-ui-kotakota-uaa-key
+          sap.cloud.service: sap-ui-kotakota
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: sap-ui-kotakota-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: sap-ui-kotakota-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - sapuikotakota.zip
+      name: sapuikotakota
+      target-path: resources/
+- name: sapuikotakota
+  type: html5
+  path: .
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: sap-ui-kotakota-dest-srv
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: sap-ui-kotakota-dest-srv
+    service-plan: lite
+- name: sap-ui-kotakota-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: sap-ui-kotakota-xsuaa-srv
+    service-plan: application
+- name: sap-ui-kotakota-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: sap-ui-kotakota-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true

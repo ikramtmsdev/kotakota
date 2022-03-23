@@ -1,0 +1,201 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.jadwalvoyage.JadwalVoyageAdd"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Add Jadwal Voyage">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Jadwal Voyage List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <!-- <uxap:headerTitle>
+				<uxap:ObjectPageHeader
+					objectTitle="{i18n>systemSettingsTitle}"
+					objectSubtitle="{i18n>systemSettingsDescriptionTitle}">
+					<uxap:actions>
+						<uxap:ObjectPageHeaderActionButton
+							id="save"
+							text="{i18n>save}"
+							hideText="false"
+							press=".onSavePressed"
+							type="Emphasized"/>
+						<uxap:ObjectPageHeaderActionButton
+							id="cancel"
+							text="{i18n>cancel}"
+							press=".onCancelPressed"
+							hideText="false"/>
+					</uxap:actions>
+				</uxap:ObjectPageHeader>
+			</uxap:headerTitle> -->
+            <!-- <uxap:headerContent>
+				<m:MessageStrip
+					text="{
+						parts: [
+							'i18n>systemSettingsLastLoginTitle',
+							'view>/currentUser',
+							'view>/lastLogin'
+						],
+						formatter: '.formatter.formatMessage'
+					}"
+					type="Information"
+					showIcon="true">
+				</m:MessageStrip>
+			</uxap:headerContent> -->
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">    
+                                            <f:formElements>
+                                                <!-- <f:FormElement label="Jadwal Pelayaran ID">
+                                                    <f:fields>
+                                                        <m:Text text="{VoyID}"/>
+                                                    </f:fields>
+                                                </f:FormElement>                                 -->
+                                                <f:FormElement label="Rute ID">
+                                                    <f:fields>
+                                                        <m:ComboBox items="{oRute>/value}" id="RuteID" required="true" change="onChangeRute" placeholder="Please Select">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oRute>RuteName}" key="{oRute>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pelayaran No">
+                                                    <f:fields>
+                                                        <m:Input id="Pelno" required="true" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement>   
+                                                <f:FormElement label="Pelayaran Name">
+                                                    <f:fields>
+                                                        <m:Input id="Pelname" required="true" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement>   
+                                                <f:FormElement label="Active">
+                                                    <f:fields>
+                                                        <m:ComboBox id="Active" placeholder="Please Select">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pel Type">
+                                                    <f:fields>
+                                                        <m:ComboBox id="PelType" placeholder="Please Select">
+                                                            <m:items>
+                                                                <core:Item text="DOM" key="DOM"/>
+                                                                <core:Item text="INS"  key="INS" />
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Nama Kapal">
+                                                    <f:fields>
+                                                        <m:Input id="NmKapal" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement>   
+                                                <f:FormElement label="Etd POL">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" id="EtdPol" placeholder="Please Select" required="true"/>
+                                                    </f:fields>
+                                                </f:FormElement>    
+                                                <f:FormElement label="Eta POD">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" id="EtaPod" placeholder="Please Select" required="true"/>
+                                                    </f:fields>
+                                                </f:FormElement>                            
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        <f:FormContainer ariaLabelledBy="Title3">
+                                            <f:formElements>
+                                                <f:FormElement label="Jadwal Berthing">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" id="Berth" placeholder="Please Select"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Sailing Time">
+                                                    <f:fields>
+                                                        <m:MaskInput mask="99" id="SailTime" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Status Pelayaran">
+                                                    <f:fields>
+                                                        <m:ComboBox id="Status" placeholder="Please Select">
+                                                            <m:items>
+                                                                <core:Item text="OPEN" key="OPEN"/>
+                                                                <core:Item text="SAILING"  key="SAILING" />
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Open Date">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" id="OpDate" placeholder="Please Select"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Open Time">
+                                                    <f:fields>
+                                                        <m:TimePicker valueFormat="HH:mm:ss" displayFormat="HH:mm:ss" id="OpTime" placeholder="Please Select"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Close Date">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" id="CsDate" placeholder="Please Select"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Close Time">
+                                                    <f:fields>
+                                                        <m:TimePicker valueFormat="HH:mm:ss" displayFormat="HH:mm:ss" id="CsTime" placeholder="Please Select"/>
+                                                    </f:fields>
+                                                </f:FormElement>   
+                                                <f:FormElement label="Pelayaran Stop">
+                                                    <f:fields>
+                                                        <m:MaskInput mask="99"  id="PelStop" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement>      
+                                                <f:FormElement label="Pelayaran Note">
+                                                    <f:fields>
+                                                        <m:TextArea id="PelNote" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers>
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:ToolbarSpacer/>
+				<m:Button type="Accept" text="Save" press="onSave">
+				</m:Button>
+				<m:Button type="Reject" text="Cancel" press="onBack">
+				</m:Button>
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

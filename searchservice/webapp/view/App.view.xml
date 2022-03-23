@@ -1,0 +1,175 @@
+<mvc:View
+    controllerName="sap.ui.searchservice.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.f" 
+    xmlns:m="sap.m" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns:core="sap.ui.core" 
+    xmlns:table="sap.ui.table"
+    displayBlock="true"
+>
+        <m:App id="app">
+            <m:pages>
+                <m:Page id="page" title="Search">                
+			<m:VBox class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormChange480_12120Dual"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Search Services"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false" >
+                <f:content>
+                    <core:Title text="Layanan" />
+                    <m:Label text="Jenis Layanan" />
+                    <m:ComboBox items="{oLayanan>/value}" placeholder="Please select" id="TipeLayanan" change="onChangeTipeLayanan">                                
+                        <m:items>                                                                                                
+                            <core:Item text="{oLayanan>NamaLayanan}" key="{oLayanan>ID}"/>
+                        </m:items>
+                    </m:ComboBox>
+                    <m:Label text="Jenis dan Kelas Muatan" />
+                    <m:ComboBox items="{oProduk>/value}" placeholder="Please select" id="JenisMuatan" change="onChangeJenisMuatan">                                            
+                        <m:items>                                                                                                
+                            <core:Item text="{oProduk>Text}" key="{oProduk>ID}"/>
+                        </m:items>
+                    </m:ComboBox>
+                    <m:Label text="Tipe Unit Darat" />
+                    <m:ComboBox items="{oTipeUnitDarat>/value}" placeholder="Please select" id="TipeUnitDarat" change="onChangeTipeUnitDarat">                                            
+                        <m:items>                                                                                                
+                            <core:Item text="{oTipeUnitDarat>UnitTipe}" key="{oTipeUnitDarat>ID}"/>
+                        </m:items>
+                    </m:ComboBox>                    
+
+                    <core:Title text="" />
+                    <m:Label text="" />
+                    <m:Text text="" />
+                    <m:Label text="Jumlah" />
+                    <m:Input id="Jumlah" type="Number" value="1"/>
+                    <m:Label text="Tipe Unit Laut" />
+                    <m:ComboBox items="{oTipeUnitLautModel>/value}" placeholder="Please select"  id="TipeUnitLaut" change="onChangeTipeUnitLaut">                                            
+                        <m:items>                                                                                                
+                            <core:Item text="{oTipeUnitLautModel>UnitTipe}" key="{oTipeUnitLautModel>ID}"/>
+                        </m:items>
+                    </m:ComboBox>
+
+                    <core:Title text="Detail Perjalanan" />
+                    <m:Label text="Origin" />
+                    <m:ComboBox items="{oOriginDestination>/value}" placeholder="Please select"  id="Origin" change="onChangeOrigin">                                            
+                        <m:items>                                                                                                
+                            <core:Item text="{oOriginDestination>ZoneDesc}" key="{oOriginDestination>ID}"/>
+                        </m:items>
+                    </m:ComboBox>
+                    <m:Label text="POL" />
+                    <m:ComboBox items="{oPolPod>/value}" placeholder="Please select" id="POL" change="onChangePOL">                                        
+                        <m:items>                                                                                                
+                            <core:Item text="{oPolPod>ZoneDesc}" key="{oPolPod>ID}"/>
+                        </m:items>
+                    </m:ComboBox>
+                    <m:Label text="Tanggal Berangkat" />
+                    <m:DatePicker placeholder="Please select" valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy"   id="TglBerangkat"/>
+                    
+                    <core:Title text="" />
+                    <m:Label text="Destination" />
+                    <m:ComboBox items="{oOriginDestination>/value}" placeholder="Please select" id="Destination" change="onChangeDestination">                                            
+                        <m:items>                                                                                                
+                            <core:Item text="{oOriginDestination>ZoneDesc}" key="{oOriginDestination>ID}"/>
+                        </m:items>
+                    </m:ComboBox>
+                    <m:Label text="POD" />
+                    <m:ComboBox items="{oPolPod>/value}" placeholder="Please select" id="POD" change="onChangePOD">                                               
+                        <m:items>                                                                                                
+                            <core:Item text="{oPolPod>ZoneDesc}" key="{oPolPod>ID}"/>
+                        </m:items>
+                    </m:ComboBox>
+
+                    <core:Title text="" />    
+                    <m:Label text="" />                
+                    <m:Button class="sapUiSmallMargin"
+                            text="Search"
+                            press="onSearch" width="50%">
+                    </m:Button>	
+                    <m:Label text="" /> 
+                    <m:CheckBox text="Search with kontrak" id="withkontrak" />
+
+                    <core:Title text="Debug" />    
+                    <m:Label text="Produk Kode" />  
+                    <m:Input id="UnitProduk"/>
+                    <m:Input id="OriginKode"/>
+                    <m:Input id="DestinationKode"/>
+                    <m:Input id="UnitTipeID"/>
+
+                      
+                    <m:Label text="Tipe" />  
+                    <m:Input id="DoorToDoor" placeholder="DoorToDoor"/>
+                    <m:Input id="DoorToPol" placeholder="DoorToPol"/>
+                    <m:Input id="PolToPod" placeholder="PolToPod"/>
+                    <m:Input id="PodToDoor" placeholder="PodToDoor"/>
+                </f:content>
+            </f:SimpleForm>   
+                <m:items>     
+                    <table:Table id="mainTable"
+                        visibleRowCountMode="Auto"
+                        minAutoRowCount="10"
+                        alternateRowColors="true"
+                        rows="{
+                            path: 'Pricebook>/value',
+                            sorter: {
+                                path: 'Penjual'
+                            }
+                        }">
+                        <table:columns>
+                            <table:Column
+                                label="Penjual">
+                                <table:template>
+                                    <m:Text text="{Pricebook>PenjualID}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column
+                                label="Produk kode">
+                                <table:template>
+                                    <m:Text text="{Pricebook>ProdukKode}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column
+                                label="Nama Layanan">
+                                <table:template>
+                                    <m:Text text="{Pricebook>NamaLayanan}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column
+                                label="Unit">
+                                <table:template>
+                                    <m:Text text="{Pricebook>Jumlah}" />
+                                </table:template>
+                            </table:Column>
+                            <table:Column
+                                label="Price">
+                                <table:template>
+                                    <m:Text text="{Pricebook>Price}" />
+                                </table:template>
+                            </table:Column>
+                        </table:columns>
+                    </table:Table>
+                </m:items>        
+            </m:VBox>
+
+                <!-- <m:Input id="test"/>
+                    
+                    <m:Button class="sapUiSmallMargin"
+                            text="Open Wizard in Dialog"
+                            press="handleOpenDialog" /> -->
+                </m:Page>
+            </m:pages>
+        </m:App>
+</mvc:View>

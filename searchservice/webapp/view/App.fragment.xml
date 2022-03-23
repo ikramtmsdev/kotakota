@@ -1,0 +1,416 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified"
+	xmlns:layout="sap.ui.layout">
+	<Dialog
+		id="wizardDialog"
+		showHeader="false"
+		verticalScrolling="false"
+		contentHeight="70%"
+		contentWidth="80%">
+		<f:DynamicPage
+			stickySubheaderProvider="CreateProductWizard"
+			toggleHeaderOnTitleClick="false"
+			class="sapUiNoContentPadding"
+			showFooter="true">
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="Service Detail"/>
+					</f:heading>
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:content>
+				<Wizard id="CreateProductWizard"
+						class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+						showNextButton="false"
+						renderMode="Page">
+					<WizardStep id="ProductInfoStep"
+								validated="false"
+								title="Order Information"
+								activate="additionalInfoValidation">
+						<MessageStrip class="sapUiSmallMarginBottom"
+								text="Please fill all required fields "
+								showIcon="true"/>
+						<form:SimpleForm
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="12"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="2"
+                                columnsM="2"
+                                singleContainerFullSize="false">
+                            <form:content>
+                                <core:Title text="" />
+                                <Label text="QuoteNo" />
+                                <Text text="{QuoteNo}"/>
+                                <Label text="PelangganID" />
+                                <Text  text="{PelangganID}"/>
+                                <Label text="PenjualID" />
+                                <Text  text="{PenjualID}"/>
+                                <Label text="InternalOrderRef" />
+                                <Input value="{InternalOrderRef}"/>
+                                <Label text="StatusQuote" />
+                                <Text  text="{StatusQuote}"/>
+                                <Label text="JenisLayanan" />
+                                <Text  text="{JenisLayanan}"/>
+                                <Label text="JenisMuatan" />
+                                <Text  text="{JenisMuatan}"/>
+                                
+                                <core:Title text="" />
+                                <Label text="HSCode" />
+                                <Input  value="{HSCode}"/>
+                                <Label text="Nilai Muatan"/>
+                                <Input  value="{NilaiMuatan}"/>
+                                <Label text="Nama Pengirim"/>
+                                <Input id="NamaPengirim"  value="{NamaPengirim}"
+                                        required="true" valueState="{namaPengirimState}" liveChange="additionalInfoValidation" placeholder="Enter name with length greater than 2" 
+                                        />
+                                <Label text="Kontak Pengirim"/>
+                                <Input  value="{KontakPengirim}"/>
+                                <Label text="Email Pengirim"/>
+                                <Input  id="EmailPengirim" value="{EmailPengirim}"
+                                        required="true" valueState="{emailPengirimState}" liveChange="additionalInfoValidation" placeholder="email" 
+                                        />
+                                <Label text="Nama Penerima"/>
+                                <Input value="{NamaPenerima}"/>
+                                <Label text="Kontak Penerima"/>
+                                <Input value="{KontakPenerima}"/>
+                                <Label text="Pesanan Atas Nama"/>
+                                <Input value="{PesananAtasNama}"/>
+                                <Label text="Kontak Atas Nama"/>
+                                <Input value="{KontakAtasNama}"/>
+                                <Label text="Email Atas Nama"/>
+                                <Input value="{EmailAtasNama}"/>
+                                <Label text="NotePengiriman"/>
+                                <Label text="{NotePengiriman}"/>
+                            </form:content>
+						</form:SimpleForm>
+					</WizardStep>
+					<WizardStep id="OptionalInfoStep"
+								validated="true"
+								activate="optionalStepActivation"
+								title="Travel Detail">
+						<MessageStrip class="sapUiSmallMarginBottom"
+								text="This is travel detail your rute."
+								showIcon="true"/>
+						<Text text="Integer pe"/>
+						<form:SimpleForm
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="12"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="2"
+                                columnsM="2"
+                                singleContainerFullSize="false">
+
+                                <core:Title text="" />
+                                <Label text="Quote No" />
+                                <Text text="{QuoteNo}" />
+                                <Label text="ProdukKode" />
+                                <Text  text="{ProdukKode}"/>
+                                <Label text="Nama Produk" />
+                                <Text  text="{NamaProduk}"/>
+                                <Label text="Qty" />
+                                <Text  text="{Jumlah}"/>
+                                <Label text="StatusDelivery" />
+                                <Text  text="{StatusDelivery}"/>
+                                <Label text="Rute ID" />
+                                <Text  text="{RuteID}"/>
+                                <Label text="Lokasi Pickup" />
+                                <Text  text="{NamaLokasiAsal}, {/AddressLokasiAsal}"/>
+                                <Label text="Lokasi Drop Off" />
+                                <Text  text="{NamaLokasiTujuan}, {/AddressLokasiTujuan}"/>
+							<!-- <Label text="Cover photo"/>
+							<u:FileUploader
+									width="100%"
+									tooltip="Upload product cover photo to the local server"
+									style="Emphasized"
+									placeholder="Choose a file for Upload..."/>
+							<Label text="Manufacturing date"/>
+							<DatePicker
+									id="DP3"
+									displayFormat="short"
+									value="{manufacturingDate}"/>
+							<Label text="Availability"/>
+							<SegmentedButton selectedKey="{/availabilityType}">
+								<items>
+									<SegmentedButtonItem key="In store" text="In store"/>
+									<SegmentedButtonItem key="In depot" text="In depot"/>
+									<SegmentedButtonItem key="In repository" text="In repository"/>
+									<SegmentedButtonItem key="Out of stock" text="Out of stock"/>
+								</items>
+							</SegmentedButton>
+							<Label text="Size"/>
+							<Input value="{size}"/>
+							<ComboBox maxWidth="100px" selectedKey="{/measurement}">
+								<core:Item key="X" text="X"/>
+								<core:Item key="Y" text="Y"/>
+								<core:Item key="Z" text="Z"/>
+							</ComboBox> -->
+
+						</form:SimpleForm>
+					</WizardStep>
+					<WizardStep id="PricingStep"
+								activate="pricingActivate"
+								complete="pricingComplete"
+								validated="true"
+								title="Billing Information">
+						<MessageStrip class="sapUiSmallMarginBottom"
+								text="Your Billing detail."
+								showIcon="true"/>
+						<form:SimpleForm
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="12"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="0"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
+                                columnsXL="2"
+                                columnsL="2"
+                                columnsM="2"
+                                singleContainerFullSize="false">
+                                    <core:Title text="" />
+                                    <Label text="Quote No"/>
+                                    <Text text="{QuoteNo}" />
+                                    <Label text="Billing No"/>
+                                    <Text text="{BillingNo}" />
+                                    <Label text="Order Status"/>
+                                    <Text text="Quote"/>
+                                    <Label text="Tipe Quote"/>
+                                    <Text text="Otomatis"/>
+                                    <Label text="Pelanggan ID"/>
+                                    <Text text="{PelangganID}"/>
+                                    <Label text="Penjual ID"/>
+                                    <Text text="{PenjualID}"/>    
+                                    <Label text="Seller Rating"/>
+                                    <Text text="{SellerRating}"/>
+                                    <Label text="Jenis Layanan"/>
+                                    <Text text="{JenisLayanan}"/>
+                                    <Label text="Jenis Kelas Muatan"/>
+                                    <Text text="{JenisMuatan}"/>  
+
+                                    <core:Title text="ARPL" /> 
+                                    <Label text="HargaPenawaranFix"/>
+                                    <Text text="{HargaPenawaranFix}"/>
+                                    <Label text="TarifTax"/>
+                                    <Text text="{TarifTax}"/>
+                                    <Label text="Pajak"/>
+                                    <Text text="{Pajak}"/>
+                                    <Label text="TarifPph"/>
+                                    <Text text="{TarifPph}"/>
+                                    <Label text="PotPph"/>
+                                    <Text text="{PotPph}"/>
+                                    <Label text="Penawaran Jumlah AR"/>
+                                    <Text text="{JumlahAR}"/>   
+
+                                    <core:Title text="APKK" /> 
+                                    <Label text="KomisiRate"/>
+                                    <Text text="{KomisiRate}"/>
+                                    <Label text="KomisiJmlMin"/>
+                                    <Text text="{KomisiJmlMin}"/>
+                                    <Label text="PajakKomisi"/>
+                                    <Text text="{PajakKomisi}"/>
+                                    <Label text="PphKomisi"/>
+                                    <Text text="{PphKomisi}"/>
+                                    <Label text="JumlahAP"/>
+                                    <Text text="{JumlahAP}"/>    
+                                    <Label text="ApPenjual"/>
+                                    <Text text="{ApPenjual}"/>   
+						</form:SimpleForm>
+					</WizardStep>
+					<WizardStep
+							id="ReviewPage"
+							activate="reviewActivate"
+							complete="reviewComplete"
+							validated="true"
+							title="Review page">
+								<form:SimpleForm
+										title="1. Order Information"
+										minWidth="1024"
+										editable="false"
+										layout="ResponsiveGridLayout">
+									<form:content>
+
+                                        <core:Title text="" /> 
+                                        <Label text="QuoteNo" />
+                                        <Text  text="{QuoteNo}"/>
+                                        <Label text="PelangganID" />
+                                        <Text  text="{PelangganID}"/>
+                                        <Label text="PenjualID" />
+                                        <Text  text="{PenjualID}"/>
+                                        <Label text="InternalOrderRef" />
+                                        <Text  text="{InternalOrderRef}"/>
+                                        <Label text="StatusQuote" />
+                                        <Text  text="{StatusQuote}"/>
+                                        <Label text="JenisLayanan" />
+                                        <Text  text="{JenisLayanan}"/>
+                                        <Label text="JenisMuatan" />
+                                        <Text  text="{JenisMuatan}"/>
+
+                                        <core:Title text="" /> 
+										<Label text="HSCODE"/>
+										<Text id="HSCode" text="{HSCode}"/>
+                                        <Label text="Nilai Muatan"/>
+                                        <Text  id="NilaiMuatan" text="{NilaiMuatan}"/>
+                                        <Label text="Nama Pengirim"/>
+                                        <Text  id="NamaPengirimVal"  text="{NamaPengirim}"/>
+                                        <Label text="Kontak Pengirim"/>
+                                        <Text id="KontakPengirim"  text="{KontakPengirim}"/>
+                                        <Label text="Email Pengirim"/>
+                                        <Text id="EmailPengirimVal"  text="{EmailPengirim}"/>
+                                        <Label text="Nama Penerima"/>
+                                        <Text id="NamaPenerima"  text="{NamaPenerima}"/>
+                                        <Label text="Kontak Penerima"/>
+                                        <Text id="KontakPenerima"  text="{KontakPenerima}"/>
+                                        <Label text="Pesanan Atas Nama"/>
+                                        <Text id="PesananAtasNama"  text="{PesananAtasNama}"/>
+                                        <Label text="Kontak Atas Nama"/>
+                                        <Text id="KontakAtasNama"  text="{KontakAtasNama}"/>
+                                        <Label text="Email Atas Nama"/>
+                                        <Text id="EmailAtasNama"  text="{EmailAtasNama}"/>
+                                        <Label text="NotePengiriman"/>
+                                        <Text id="NotePengiriman" text="{NotePengiriman}" />
+
+										<Link press="editStepOne" text="Edit" />
+									</form:content>
+								</form:SimpleForm>
+
+								<form:SimpleForm
+										title="2. Travel Detail"
+										minWidth="1024"
+										editable="false"
+										layout="ResponsiveGridLayout">
+									<form:content>
+
+                                        <Label text="Quote No" />
+                                        <Text text="{QuoteNo}"/>
+                                        <Label text="ProdukKode" />
+                                        <Text  text="{ProdukKode}"/>
+                                        <Label text="Nama Produk" />
+                                        <Text  text="{NamaProduk}"/>
+                                        <Label text="Qty" />
+                                        <Text  text="{Jumlah}"/>
+                                        <Label text="StatusDelivery" />
+                                        <Text  text="{StatusDelivery}"/>
+                                        <Label text="Rute ID" />
+                                        <Text  text="{RuteID}"/>
+                                        <Label text="Lokasi Pickup" />
+                                        <Text  text="{NamaLokasiAsal}, {/AddressLokasiAsal}"/>
+                                        <Label text="Lokasi Drop Off" />
+                                        <Text  text="{NamaLokasiTujuan}, {/AddressLokasiTujuan}"/>
+										<!-- <Label text="Some text"/>
+										<Text text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. "/>
+										<Label text="Manufacturing Date"/>
+										<Text id="ManufacturingDate" text="{/manufacturingDate}"/>
+										<Label text="Availability"/>
+										<Text id="AvailabilityChosen" text="{/availabilityType}"/>
+										<Label text="Size"/>
+										<HBox>
+											<Text id="Size" text="{/size}"/>
+											<Text id="Size2" class="sapUiTinyMarginBegin" text="{/measurement}"/>
+										</HBox> -->
+										<Link press="editStepTwo" text="Edit" />
+									</form:content>
+								</form:SimpleForm>
+
+								<form:SimpleForm
+										title="3. Billing Information"
+										minWidth="1024"
+										editable="false"
+										layout="ResponsiveGridLayout">
+									<form:content>
+                                        <Label text="Quote No"/>
+                                        <Text text="{QuoteNo}"/>
+                                        <Label text="Billing No"/>
+                                        <Text text="{BillingNo}" />
+                                        <Label text="Order Status"/>
+                                        <Text text="Quote"/>
+                                        <Label text="Tipe Quote"/>
+                                        <Text text="Otomatis"/>
+                                        <Label text="Pelanggan ID"/>
+                                        <Text text="{PelangganID}"/>
+                                        <Label text="Penjual ID"/>
+                                        <Text text="{PenjualID}"/>    
+                                        <Label text="Seller Rating"/>
+                                        <Text text="{SellerRating}"/>
+                                        <Label text="Jenis Layanan"/>
+                                        <Text text="{JenisLayanan}"/>
+                                        <Label text="Jenis Kelas Muatan"/>
+                                        <Text text="{JenisMuatan}"/>  
+
+                                        <core:Title text="ARPL" /> 
+                                        <Label text="HargaPenawaranFix"/>
+                                        <Text text="{HargaPenawaranFix}"/>
+                                        <Label text="TarifTax"/>
+                                        <Text text="{TarifTax}"/>
+                                        <Label text="Pajak"/>
+                                        <Text text="{Pajak}"/>
+                                        <Label text="TarifPph"/>
+                                        <Text text="{TarifPph}"/>
+                                        <Label text="PotPph"/>
+                                        <Text text="{PotPph}"/>
+                                        <Label text="Penawaran Jumlah AR"/>
+                                        <Text text="{JumlahAR}"/>   
+
+                                        <core:Title text="APKK" /> 
+                                        <Label text="KomisiRate"/>
+                                        <Text text="{KomisiRate}"/>
+                                        <Label text="KomisiJmlMin"/>
+                                        <Text text="{KomisiJmlMin}"/>
+                                        <Label text="PajakKomisi"/>
+                                        <Text text="{PajakKomisi}"/>
+                                        <Label text="PphKomisi"/>
+                                        <Text text="{PphKomisi}"/>
+                                        <Label text="JumlahAP"/>
+                                        <Text text="{JumlahAP}"/>    
+                                        <Label text="ApPenjual"/>
+                                        <Text text="{ApPenjual}"/>   
+										<!-- <Label text="Price"/>
+										<Text id="ProductPriceChosen" text="{/productPrice}"/>
+										<Label text="Discount Group"/>
+										<Text id="DiscountGroupChosen" text="{/discountGroup}"/>
+										<Label text="VAT Included"/>
+										<Text id="ProductVATChosen" text="{/productVAT}"/> -->
+										<Link press="editStepThree" text="Edit" />
+									</form:content>
+								</form:SimpleForm>
+					</WizardStep>
+				</Wizard>
+			</f:content>
+
+			<f:footer>
+				<OverflowToolbar>
+					<ToolbarSpacer/>
+					<Button text="Previous" visible="{/backButtonVisible}" press="onDialogBackButton" />
+					<Button text="Next Step" type="Emphasized" enabled="{/nextButtonEnabled}" visible="{/nextButtonVisible}" press="onDialogNextButton" />
+					<Button text="Review" type="Emphasized" visible="{/reviewButtonVisible}" press="onDialogNextButton" />
+					<Button text="Book" type="Emphasized" visible="{/finishButtonVisible}" press="handleWizardSubmit" />
+					<Button	text="Cancel" type="Transparent" press="handleWizardCancel"/>
+				</OverflowToolbar>
+			</f:footer>
+		</f:DynamicPage>
+	</Dialog>
+</core:FragmentDefinition>

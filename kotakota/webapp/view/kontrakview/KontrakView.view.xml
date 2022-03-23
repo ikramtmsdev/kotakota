@@ -1,0 +1,151 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.kontrakview.KontrakView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Contract View List">
+                        <m:Link text="Master Management"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:headerTitle>
+				<uxap:ObjectPageHeader
+					objectTitle="Contract View List"
+					objectSubtitle="">
+					<!-- <uxap:actions>
+						<uxap:ObjectPageHeaderActionButton
+							id="save"
+							text="{i18n>save}"
+							hideText="false"
+							press=".onSavePressed"
+							type="Emphasized"/>
+						<uxap:ObjectPageHeaderActionButton
+							id="cancel"
+							text="{i18n>cancel}"
+							press=".onCancelPressed"
+							hideText="false"/>
+					</uxap:actions> -->
+				</uxap:ObjectPageHeader>
+			</uxap:headerTitle>
+            <!-- <uxap:headerContent>
+				<m:MessageStrip
+					text="{
+						parts: [
+							'i18n>systemSettingsLastLoginTitle',
+							'view>/currentUser',
+							'view>/lastLogin'
+						],
+						formatter: '.formatter.formatMessage'
+					}"
+					type="Information"
+					showIcon="true">
+				</m:MessageStrip>
+			</uxap:headerContent> -->
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <table:Table id="mainTable"
+                                visibleRowCountMode="Auto"
+                                minAutoRowCount="10"
+                                alternateRowColors="true"
+                                rows="{
+                                    path: 'KontrakView>/value',
+                                    sorter: {
+                                        path: 'ID'
+                                    }
+                                }">
+                                <table:extension>
+                                    <m:OverflowToolbar style="Clear">
+                                        <m:Title text=" "/>
+                                        <m:ToolbarSpacer/>  
+                                        <m:SearchField
+                                            placeholder="Filter"
+                                            value="{ui>/globalFilter}"
+                                            search="filterGlobally"
+                                            width="15rem"/>
+                                    </m:OverflowToolbar>
+                                </table:extension>
+                                <table:columns>
+                                    <table:Column
+                                        label="Pricebook No">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>PricebookNo}" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column
+                                        label="No Kontrak">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>NoKontrak}" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column
+                                        label="PenjualID">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>PenjualID}" />
+                                        </table:template>
+                                    </table:Column>
+                                     <table:Column
+                                        label="Pelanggan">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>KontrakPartnerPelanggan}" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column
+                                        label="ProdukKode">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>ProdukKode}" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column
+                                        label="ProductGroup">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>ProductGroup}" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column label="UnitTipeId">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>UnitTipeId}" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column label="RuteID">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>RuteID}" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column
+                                        label="Mulai">
+                                        <table:template>
+                                            <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" value="{KontrakView>PeriodeMulai}" editable="false" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column
+                                        label="Selesai">
+                                        <table:template>
+                                            <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" value="{KontrakView>PeriodeSelesai}" editable="false" />
+                                        </table:template>
+                                    </table:Column>
+                                    <table:Column label="Status">
+                                        <table:template>
+                                            <m:Text text="{KontrakView>KontrakStatus}" />
+                                        </table:template>
+                                    </table:Column>
+                                </table:columns>
+                            </table:Table>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+	</m:Page>
+</mvc:View>

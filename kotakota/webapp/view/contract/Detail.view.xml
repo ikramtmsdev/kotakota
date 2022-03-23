@@ -1,0 +1,236 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.contract.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Contract Detail">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Contract List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">    
+                                            <f:formElements>
+                                                <f:FormElement label="ID">
+                                                    <f:fields>
+                                                        <m:Text text="{ID}" />
+                                                        <m:Input id="ID" value="{ID}" visible="false"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Penjual ID">
+                                                    <f:fields>
+                                                        <m:Text id="PenjualID" text="{PenjualID}"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pricebook No">
+                                                    <f:fields>
+                                                        <m:Text  id="PricebookNo" text="{PricebookNo}"/>
+                                                    </f:fields>
+                                                </f:FormElement>                              
+                                                <f:FormElement label="Klasifikasi">
+                                                    <f:fields>
+                                                        <m:Input  id="Klasifikasi" value="{Klasifikasi}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Product Group">
+                                                    <f:fields>                                       
+                                                        <m:Select items="{oProductGroup>/value}" selectedKey="{ProductGroup}" id="ProductGroup">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oProductGroup>Text}" key="{oProductGroup>ID}"/>
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Kontrak Partner Pelanggan">
+                                                    <f:fields>
+                                                        <m:Input  id="KontrakPartnerPelanggan" value="{KontrakPartnerPelanggan}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Kontrak Status">
+                                                    <f:fields>
+                                                        <m:Select id="KontrakStatus" selectedKey="{KontrakStatus}">
+                                                            <m:items>
+                                                                <core:Item text="Draft" key="Draft"/>
+                                                                <core:Item text="To Approved" key="To Approved"/>
+                                                                <core:Item text="Approved" key="Approved"/>
+                                                                <core:Item text="Reject"  key="Reject" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Kontrak Deskripsi">
+                                                    <f:fields>
+                                                        <m:TextArea  id="KontrakDeskripsi" value="{KontrakDeskripsi}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Periode Mulai">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy"   id="PeriodeMulai" value="{PeriodeMulai}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Periode Selesai">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy"  id="PeriodeSelesai" value="{PeriodeSelesai}"/>
+                                                    </f:fields>
+                                                </f:FormElement>                                 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        <f:FormContainer ariaLabelledBy="Title3">
+                                            <f:formElements>
+                                                <f:FormElement label="Active">
+                                                    <f:fields>
+                                                        <m:Select id="Active" selectedKey="{Active}">
+                                                            <m:items>
+                                                                <core:Item text="Active" key="Y"/>
+                                                                <core:Item text="Inactive"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>                                                 
+                                                <f:FormElement label="Diskon">
+                                                    <f:fields>
+                                                        <m:Input  id="Diskon" value="{Diskon}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Diskon Manual">
+                                                    <f:fields>
+                                                        <m:Select id="DiskonManual" selectedKey="{DiskonManual}">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="TarifId Tax">
+                                                    <f:fields>                                       
+                                                        <m:ComboBox items="{oTarifTax>/value}" change="onChangeTarifTax" selectedKey="{TarifIdTax}" id="TarifIdTax" placeholder="Please Select">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oTarifTax>NamaTarif}" key="{oTarifTax>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif Tax">
+                                                    <f:fields>
+                                                        <m:Input id="TarifTax" value="{TarifTax}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="TarifId Pph">
+                                                    <f:fields>                                       
+                                                        <m:ComboBox items="{oTarifPph>/value}" change="onChangePph" selectedKey="{TarifIdPph}" id="TarifIdPph" placeholder="Please Select">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oTarifPph>NamaTarif}" key="{oTarifPph>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif Pph">
+                                                    <f:fields>
+                                                        <m:Input  id="TarifPph" value="{TarifPph}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="TarifId Produk">
+                                                    <f:fields>                                       
+                                                        <m:ComboBox items="{oTarif>/value}"  change="onChangeTarifProduk"  selectedKey="{TarifIdProduk}" id="TarifIdProduk" placeholder="Please Select">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oTarif>NamaTarif}" key="{oTarif>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif Produk Fee">
+                                                    <f:fields>
+                                                        <m:Input  id="TarifProdukFee" value="{TarifProdukFee}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Fee Min">
+                                                    <f:fields>
+                                                        <m:Input  id="FeeMin" value="{FeeMin}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Fee Max">
+                                                    <f:fields>
+                                                        <m:Input   id="FeeMax" value="{FeeMax}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif TOP">
+                                                    <f:fields>
+                                                        <m:ComboBox items="{oTarifTop>/value}" selectedKey="{TarifTOP}"  id="TarifTOP" placeholder="Please Select">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oTarifTop>NamaTarif}" key="{oTarifTop>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Promo">
+                                                    <f:fields>
+                                                        <m:Select id="Promo" selectedKey="{Promo}">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>  
+                                                <f:FormElement label="Manual Quot">
+                                                    <f:fields>
+                                                        <m:Select id="ManualQuot" selectedKey="{ManualQuot}">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>  
+                                                <f:FormElement label="Validatity Sla">
+                                                    <f:fields>
+                                                        <m:Input  id="ValidatitySla" value="{ValidatitySla}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Additional Info">
+                                                    <f:fields>
+                                                        <m:TextArea id="AdditionalInfo" value="{AdditionalInfo}"/>
+                                                    </f:fields>
+                                                </f:FormElement>                                 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers>
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:Button type="Accept" text="Edit" press="onEdit" />
+                    <m:ToolbarSpacer/>
+                    <m:Button type="Accept" id="btnSave" enabled="false" text="Save" press="onSave" />
+                    <m:Button type="Reject" id="btnCancel" enabled="false" text="Cancel" press="onBack" />
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

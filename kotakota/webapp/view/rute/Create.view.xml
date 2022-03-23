@@ -1,0 +1,108 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.rute.Create"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Add Rute">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Rute List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">
+                                            <f:formElements>
+                                                <f:FormElement label="Rute Asal">
+                                                    <f:fields>                                       
+                                                        <m:ComboBox items="{oRuteFrom>/value}" id="RuteFrom" placeholder="Please Select" required="true">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oRuteFrom>ID} - {oRuteFrom>ZoneDesc}" key="{oRuteFrom>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Rute Tujuan">
+                                                    <f:fields>                                       
+                                                        <m:ComboBox items="{oRuteTo>/value}" id="RuteTo" placeholder="Please Select" required="true">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oRuteTo>ID} - {oRuteTo>ZoneDesc}" key="{oRuteTo>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>                              
+                                                <f:FormElement label="Rute Name">
+                                                    <f:fields>
+                                                        <m:Input id="RuteName" placeholder="Type heree.." required="true"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Active">
+                                                    <f:fields>
+                                                        <m:Select id="Active">
+                                                            <m:items>
+                                                                <core:Item text="Active"    key="Y"/>
+                                                                <core:Item text="Inactive"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Rute Type">
+                                                    <f:fields>
+                                                        <m:Select id="RuteType">
+                                                            <m:items>
+                                                                <core:Item text="DOM"  key="DOM"/>
+                                                                <core:Item text="INS"  key="INS" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>  
+                                                <f:FormElement label="Std KM">
+                                                    <f:fields>
+                                                        <m:Input type="Number" id="Distance" placeholder="Type heree.."/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Rute Group">
+                                                    <f:fields>
+                                                        <m:Input maxLength="10" id="RuteGroup" placeholder="Type heree.."/> 
+                                                    </f:fields>
+                                                </f:FormElement>                             
+                                            </f:formElements>
+                                        </f:FormContainer>                        
+                                    </f:formContainers>
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:ToolbarSpacer/>
+				<m:Button type="Accept" text="Save" press="onSave">
+				</m:Button>
+				<m:Button type="Reject" text="Cancel" press="onBack">
+				</m:Button>
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

@@ -1,0 +1,229 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.kontrakview.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Contract View Detail">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Contract View List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">    
+                                            <f:formElements>
+                                                <f:FormElement label="Contract No">
+                                                <f:fields>
+                                                <m:Text text="{NoKontrak}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Produk kode">
+                                                <f:fields>
+                                                <m:Text  text="{ProdukKode}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Product Group">
+                                                <f:fields>
+                                                <m:Text text="{ProductGroup}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Unit Type">
+                                                <f:fields>
+                                                <m:Text text="{ProductGroup}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Rute">
+                                                <f:fields>
+                                                <m:Text text="{RuteID}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Lokasi">
+                                                <f:fields>
+                                                <m:Text text="{LokasiID}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pelayaran">
+                                                <f:fields>
+                                                <m:Text text="{Pelayaran}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Harga Fix">
+                                                <f:fields>
+                                                <m:Text text="{HargaFix}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Harga Var">
+                                                <f:fields>
+                                                <m:Text text="{HargaVar}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Unit Uom">
+                                                <f:fields>
+                                                <m:Text text="{Uom}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Kurs">
+                                                <f:fields>
+                                                <m:Text text="{aaaa}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Mata Uang">
+                                                <f:fields>
+                                                <m:Text text="{TarifCurr}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Diskon %">
+                                                <f:fields>
+                                                <m:Text text="{Diskon}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Diskon Manual Item Price (Y/N)">
+                                                <f:fields>
+                                                <m:Select editable="false" id="DiskonManual" selectedKey="{DiskonManual}">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        
+                                        <f:FormContainer ariaLabelledBy="Title3">
+                                            <f:formElements>
+                                            
+                                                <f:FormElement label="Harga Penawaran FiX">
+                                                <f:fields>
+                                                <m:Text text="{HargaPenawaranFix}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Harga Penawaran Var">
+                                                <f:fields>
+                                                <m:Text text="{HargaPenawaranVar}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pajak Rate">
+                                                <f:fields>
+                                                <m:Text text="{TarifTax}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pajak">
+                                                <f:fields>
+                                                <m:Text text="{Pajak}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pot pph Rate">
+                                                <f:fields>
+                                                <m:Text text="{TarifPph}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pot Pph">
+                                                <f:fields>
+                                                <m:Text text="{PotPph}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                 <f:FormElement label="Jumlah AR">
+                                                <f:fields>
+                                                <m:Text text="{JumlahAR}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Komisi Rate =tarif produk fee di kontrak">
+                                                <f:fields>
+                                                <m:Text text="{KomisiRate}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Komisi Jumlah *Min">
+                                                <f:fields>
+                                                <m:Text text="{KomisiJmlMin}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pajak Komisi">
+                                                <f:fields>
+                                                <m:Text text="{PajakKomisi}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pot pph Rate">
+                                                <f:fields>
+                                                <m:Text text="{TarifPph}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pph Komisi">
+                                                <f:fields>
+                                                <m:Text text="{PphKomisi}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Jumlah AP Kotakota">
+                                                <f:fields>
+                                                <m:Text text="{JumlahAP}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="AP Penjual">
+                                                <f:fields>
+                                                <m:Text text="{ApPenjual}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Std KM">
+                                                <f:fields>
+                                                <m:Text text="{StdKM}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Konversi CBKG">
+                                                <f:fields>
+                                                <m:Text text="{KonversiCBKG}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Min">
+                                                <f:fields>
+                                                <m:Text text="{Min}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Max">
+                                                <f:fields>
+                                                <m:Text text="{Max}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Terms">
+                                                <f:fields>
+                                                <m:Text text="{Terms}"/>
+                                                </f:fields>
+                                                </f:FormElement>
+                                                                            
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        
+                                    </f:formContainers>
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+                    <m:Button id="btnCancel" enabled="false" text="Back" press="onBack" />
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

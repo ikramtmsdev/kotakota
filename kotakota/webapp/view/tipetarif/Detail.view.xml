@@ -1,0 +1,114 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.tipetarif.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Tipe Tarif Detail">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Tipe Tarif List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>                                    
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">    
+                                            <f:formElements>
+                                                <f:FormElement label="ID">
+                                                    <f:fields>
+                                                        <m:Text text="{ID}"/>
+                                                        <m:Input id="ID" value="{ID}" visible="false"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Tarif Tipe">
+                                                    <f:fields>
+                                                        <m:Input required="true" value="{TarifTipe}" id="TarifTipe"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Nama Tarif">
+                                                    <f:fields>
+                                                        <m:Input required="true" value="{NamaTarif}" id="NamaTarif"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif Deskripsi">
+                                                    <f:fields>
+                                                        <m:Input value="{TarifDeskripsi}" id="TarifDeskripsi"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif Rate">
+                                                    <f:fields>
+                                                        <m:Input type="Number" value="{TarifRate}" id="TarifRate"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif Min">
+                                                    <f:fields>
+                                                        <m:Input type="Number" value="{TarifMin}" id="TarifMin"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif Max">
+                                                    <f:fields>
+                                                        <m:Input type="Number" value="{TarifMax}" id="TarifMax"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        <f:FormContainer ariaLabelledBy="Title3">
+                                            <f:formElements>                              
+                                                <f:FormElement label="Berlaku Dari">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" value="{BerlakuDari}" id="BerlakuDari"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Berlaku Sampai">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" value="{BerlakuSampai}" id="BerlakuSampai"/>
+                                                    </f:fields>
+                                                </f:FormElement>   
+                                                <f:FormElement label="Active">
+                                                    <f:fields>
+                                                        <m:Select id="Active" selectedKey="{Active}">
+                                                            <m:items>
+                                                                <core:Item text="Active" key="Y"/>
+                                                                <core:Item text="Inactive"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>                                
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers>
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:Button type="Accept" text="Edit" press="onEdit" />
+                    <m:ToolbarSpacer/>
+                    <m:Button type="Accept" id="btnSave" enabled="false" text="Save" press="onSave" />
+                    <m:Button type="Reject" id="btnCancel" enabled="false" text="Cancel" press="onBack" />
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

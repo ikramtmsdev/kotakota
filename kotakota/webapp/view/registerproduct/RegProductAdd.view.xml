@@ -1,0 +1,143 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.registerproduct.RegProductAdd"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Add Register Products">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Register Products List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <!-- <uxap:headerTitle>
+				<uxap:ObjectPageHeader
+					objectTitle="{i18n>systemSettingsTitle}"
+					objectSubtitle="{i18n>systemSettingsDescriptionTitle}">
+					<uxap:actions>
+						<uxap:ObjectPageHeaderActionButton
+							id="save"
+							text="{i18n>save}"
+							hideText="false"
+							press=".onSavePressed"
+							type="Emphasized"/>
+						<uxap:ObjectPageHeaderActionButton
+							id="cancel"
+							text="{i18n>cancel}"
+							press=".onCancelPressed"
+							hideText="false"/>
+					</uxap:actions>
+				</uxap:ObjectPageHeader>
+			</uxap:headerTitle> -->
+            <!-- <uxap:headerContent>
+				<m:MessageStrip
+					text="{
+						parts: [
+							'i18n>systemSettingsLastLoginTitle',
+							'view>/currentUser',
+							'view>/lastLogin'
+						],
+						formatter: '.formatter.formatMessage'
+					}"
+					type="Information"
+					showIcon="true">
+				</m:MessageStrip>
+			</uxap:headerContent> -->
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2"> 
+                                                <f:FormElement label="FungsiPartner" visible="false">
+                                                    <f:fields>
+                                                        <m:ComboBox id="FungsiPartner" change="onChangeFungsiPartner" selectedKey="Register Produk" placeholder="Please Select">
+                                                            <m:items>
+                                                                <core:Item text="Driver" key="Driver"/>
+                                                                <core:Item text="Contract Partner" key="Contract Partner"/>
+                                                                <core:Item text="Register Produk" key="Register Produk"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>   
+                                                <f:formElements>
+                                                    <f:FormElement label="Penjual ID"  id="lPenjualID">
+                                                        <f:fields>                                       
+                                                            <m:ComboBox items="{oPenjual>/value}"  id="PenjualID" required="true" placeholder="Please Select">                                
+                                                                <m:items>                                                                                                
+                                                                    <core:Item text="{oPenjual>ID}" key="{oPenjual>ID}"/>
+                                                                </m:items>
+                                                            </m:ComboBox>
+                                                        </f:fields>
+                                                    </f:FormElement>
+                                                    <f:FormElement label="Tipe Unit" id="elTipeUnit">
+                                                        <f:fields>                                       
+                                                            <m:ComboBox items="{oTipeUnit>/value}"  id="TipeUnit"  required="true" placeholder="Please Select">                                
+                                                                <m:items>                                                                                                
+                                                                    <core:Item text="{oTipeUnit>ID}" key="{oTipeUnit>ID}"/>
+                                                                </m:items>
+                                                            </m:ComboBox>
+                                                        </f:fields>
+                                                    </f:FormElement>
+                                                    <f:FormElement label="Deskripsi" id="lDeskripsi">
+                                                        <f:fields>
+                                                            <m:Input id="Deskripsi" placeholder="Deskripsi"/>
+                                                        </f:fields>
+                                                    </f:FormElement>                                   
+                                                    <f:FormElement label="Partner Note"  id="lPartnerNote">
+                                                        <f:fields>
+                                                            <m:Input id="PartnerNote" placeholder="Partner Note"/>
+                                                        </f:fields>
+                                                    </f:FormElement> 
+                                                    <f:FormElement label="Active" id="lActive">
+                                                    <f:fields>
+                                                        <m:ComboBox id="Active" placeholder="Please Select">
+                                                            <m:items>
+                                                                <core:Item text="Active" key="Y"/>
+                                                                <core:Item text="Inactive" key="N"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Tgl Available From-To">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" placeholder="Please Select"  id="TglAvailableFrom"  required="true"/>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" placeholder="Please Select"  id="TglAvailableTo"  required="true"/>
+                                                    </f:fields>
+                                                </f:FormElement>                                  
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers>    
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:ToolbarSpacer/>
+				<m:Button type="Accept" text="Save" press="onSave">
+				</m:Button>
+				<m:Button type="Reject" text="Cancel" press="onBack">
+				</m:Button>
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

@@ -1,0 +1,221 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.tipelayanan.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Tipe Layanan Detail">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Tipe Layanan List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">    
+                                            <f:formElements>
+                                                <f:FormElement label="ID">
+                                                    <f:fields>
+                                                        <m:Text text="{ID}"/>
+                                                        <m:Input value="{ID}" id="ID" visible="false"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="DomIns">
+                                                    <f:fields>
+                                                        <m:Select editable="false" id="DomIns" selectedKey="{DomIns}">
+                                                            <m:items>
+                                                                <core:Item text="DOM" key="DOM"/>
+                                                                <core:Item text="INS" key="INS"/>
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Incoterm">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{Incoterm}" id="Incoterm"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="NamaLayanan">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{NamaLayanan}" id="NamaLayanan"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="DescLayanan">
+                                                    <f:fields>
+                                                        <m:TextArea editable="false" value="{DescLayanan}" id="DescLayanan"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="DescBiaya">
+                                                    <f:fields>
+                                                        <m:TextArea editable="false" value="{DescBiaya}" id="DescBiaya"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="JmlStop">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{JmlStop}" id="JmlStop" type="Number"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="DoorToDoor">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{DoorToDoor}" id="DoorToDoor"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="DoorToPol">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{DoorToPol}" id="DoorToPol"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            <f:FormElement label="PolToPod">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{PolToPod}" id="PolToPod"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="PodToDoor">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{PodToDoor}" id="PodToDoor"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="StopSatu">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{StopSatu}" id="StopSatu"/>
+                                                    </f:fields>
+                                                </f:FormElement>       
+                                                <f:FormElement label="StopDua">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{StopDua}" id="StopDua"/>
+                                                    </f:fields>
+                                                </f:FormElement>                      
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        <f:FormContainer ariaLabelledBy="Title3">
+                                            <f:FormElement label="Active">  
+                                                <f:fields>
+                                                    <m:Select editable="false" id="Active" selectedKey="{Active}">
+                                                        <m:items>
+                                                            <core:Item text="Active" key="Y"/>
+                                                            <core:Item text="Inactive" key="N"/>
+                                                        </m:items>
+                                                    </m:Select>
+                                                </f:fields>
+                                            </f:FormElement>
+                                            <f:formElements>
+                                                <f:FormElement label="LchToPol">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{LchToPol}" id="LchToPol"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="HndToPol">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{HndToPol}" id="HndToPol"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="LolToPol">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{LolToPol}" id="LolToPol"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="LchToPod">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{LchToPod}" id="LchToPod"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="HndToPod">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{HndToPod}" id="HndToPod"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="LolToPod">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{LolToPod}" id="LolToPod"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="Insur">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{Insur}" id="Insur"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="AddSatu">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{AddSatu}" id="AddSatu"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="AddDua">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{AddDua}" id="AddDua"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="AddTiga">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{AddTiga}" id="AddTiga"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="AddEmpat">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{AddEmpat}" id="AddEmpat"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                            <f:formElements>
+                                                <f:FormElement label="AddLima">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{AddLima}" id="AddLima"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers>
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:Button type="Accept" text="Edit" press="onEdit" />
+                    <m:ToolbarSpacer/>
+                    <m:Button type="Accept" id="btnSave" enabled="false" text="Save" press="onSave" />
+                    <m:Button type="Reject" id="btnCancel" enabled="false" text="Cancel" press="onBack" />
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

@@ -1,0 +1,7 @@
+applications:
+  - name: searchservice
+    routes:
+      - route: https://search.kotakota.id/webapp
+    memory: 1024M
+    disk_quota: 512M
+    buildpack: staticfile_buildpack    

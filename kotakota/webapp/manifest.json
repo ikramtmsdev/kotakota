@@ -1,0 +1,484 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "sap.ui.kotakota",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "dataSources": {
+            "mainService": {
+                "uri": "https://apiapps.cfapps.ap11.hana.ondemand.com/catalog/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "uri": "https://apiapps.cfapps.ap11.hana.ondemand.com/catalog/$metadata",
+                    "odataVersion": "4.0"
+                }
+            },
+            "tableData_alias": {
+				"uri": "model/Object.json",
+				"type": "JSON"
+			},
+            "RegisterProduk": {
+				"uri": "https://apiapps.cfapps.ap11.hana.ondemand.com/catalog/RegisterProduk",
+				"type": "JSON"
+			},
+            "UnitAvailSea": {
+				"uri": "https://apiapps.cfapps.ap11.hana.ondemand.com/catalog/UnitAvailSea",
+				"type": "JSON"
+			},
+            "UnitAvailLand": {
+				"uri": "https://apiapps.cfapps.ap11.hana.ondemand.com/catalog/UnitAvailLand",
+				"type": "JSON"
+			}
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.98.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.ui.layout": {},
+				"sap.m": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sap.ui.kotakota.i18n.i18n"
+                }
+            },
+            "mainService": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true,
+                    "groupId": "$direct"
+                }
+            },
+			"tableData": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "tableData_alias"
+			},
+			"RegisterProduk": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "RegisterProduk"
+			},
+			"UnitAvailSea": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "UnitAvailSea"
+			},
+			"UnitAvailLand": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "UnitAvailLand"
+			}
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "sap.ui.kotakota.view",
+                "controlAggregation": "pages",
+                "controlId": "mainContents"
+            },
+            "routes": [
+                {
+                    "name": "Home",
+                    "pattern": "",
+                    "target": [
+                        "Home"
+                    ]
+                },
+                {
+                    "name":"Order", "pattern":"Order", "target":["Order"]
+                },
+                {
+                    "name":"RegProduct", "pattern":"RegProduct", "target":["RegProduct"]
+                },
+                {
+                    "name":"RegProductAdd", "pattern":"RegProductAdd", "target":["RegProductAdd"]
+                },
+                {
+                    "name":"UnitAvailSea", "pattern":"UnitAvailSea", "target":["UnitAvailSea"]
+                },
+                {
+                    "name":"UnitAvailSeaAdd", "pattern":"UnitAvailSeaAdd", "target":["UnitAvailSeaAdd"]
+                },
+                {
+                    "name":"UnitAvailLand", "pattern":"UnitAvailLand", "target":["UnitAvailLand"]
+                },
+                {
+                    "name":"UnitAvailLandAdd", "pattern":"UnitAvailLandAdd", "target":["UnitAvailLandAdd"]
+                },
+                {
+                    "name":"JadwalVoyage", "pattern":"JadwalVoyage", "target":["JadwalVoyage"]
+                },
+                {
+                    "name":"JadwalVoyageAdd", "pattern":"JadwalVoyageAdd", "target":["JadwalVoyageAdd"]
+                },
+                {
+                    "name":"JadwalVoyageDetail", "pattern":"JadwalVoyage/Detail/{id}", "target":["JadwalVoyageDetail"]
+                },
+                {
+                    "name":"UnitAvailLandCall", "pattern":"UnitAvailLandCall", "target":["UnitAvailLandCall"]
+                },
+                {
+                    "name":"UnitAvailLandCallAdd", "pattern":"UnitAvailLandCall/Create", "target":["UnitAvailLandCallAdd"]
+                },
+                {
+                    "name":"UnitAvailLandCallDetail", "pattern":"UnitAvailLandCall/Detail/{id}", "target":["UnitAvailLandCallDetail"]
+                },
+                {
+                    "name":"Customer", "pattern":"Customer", "target":["Customer"]
+                },
+                {
+                    "name":"CustomerAdd", "pattern":"Customer/Create", "target":["CustomerAdd"]
+                },
+                {
+                    "name":"CustomerDetail", "pattern":"Customer/Detail/{id}", "target":["CustomerDetail"]
+                },
+                {
+                    "name":"Rute", "pattern":"Rute", "target":["Rute"]
+                },
+                {
+                    "name":"RuteAdd", "pattern":"Rute/Create", "target":["RuteAdd"]
+                },
+                {
+                    "name":"RuteDetail", "pattern":"Rute/Detail/{id}", "target":["RuteDetail"]
+                },
+                {
+                    "name":"Zone", "pattern":"Zone", "target":["Zone"]
+                },
+                {
+                    "name":"ZoneAdd", "pattern":"Zone/Create", "target":["ZoneAdd"]
+                },
+                {
+                    "name":"ZoneDetail", "pattern":"Zone/Detail/{id}", "target":["ZoneDetail"]
+                },
+                {
+                    "name":"TipeUnitProduk", "pattern":"TipeUnitProduk", "target":["TipeUnitProduk"]
+                },
+                {
+                    "name":"TipeUnitProdukAdd", "pattern":"TipeUnitProduk/Create", "target":["TipeUnitProdukAdd"]
+                },
+                {
+                    "name":"TipeUnitProdukDetail", "pattern":"TipeUnitProduk/Detail/{id}", "target":["TipeUnitProdukDetail"]
+                },
+                {
+                    "name":"TipeLayanan", "pattern":"TipeLayanan", "target":["TipeLayanan"]
+                },
+                {
+                    "name":"TipeLayananAdd", "pattern":"TipeLayanan/Create", "target":["TipeLayananAdd"]
+                },
+                {
+                    "name":"TipeLayananDetail", "pattern":"TipeLayanan/Detail/{id}", "target":["TipeLayananDetail"]
+                },
+                {
+                    "name":"Pricebook", "pattern":"Pricebook", "target":["Pricebook"]
+                },
+                {
+                    "name":"PricebookAdd", "pattern":"Pricebook/Create", "target":["PricebookAdd"]
+                },
+                {
+                    "name":"PricebookDetail", "pattern":"Pricebook/Detail/{id}", "target":["PricebookDetail"]
+                },
+                {
+                    "name":"TipeTarif", "pattern":"TipeTarif", "target":["TipeTarif"]
+                },
+                {
+                    "name":"TipeTarifAdd", "pattern":"TipeTarif/Create", "target":["TipeTarifAdd"]
+                },
+                {
+                    "name":"TipeTarifDetail", "pattern":"TipeTarif/Detail/{id}", "target":["TipeTarifDetail"]
+                },
+                {
+                    "name":"Seller", "pattern":"Seller", "target":["Seller"]
+                },
+                {
+                    "name":"SellerAdd", "pattern":"Seller/Create", "target":["SellerAdd"]
+                },
+                {
+                    "name":"SellerDetail", "pattern":"Seller/Detail/{id}", "target":["SellerDetail"]
+                },
+                {
+                    "name":"Partner", "pattern":"Partner", "target":["Partner"]
+                },
+                {
+                    "name":"PartnerAdd", "pattern":"Partner/Create", "target":["PartnerAdd"]
+                },
+                {
+                    "name":"PartnerDetail", "pattern":"Partner/Detail/{id}", "target":["PartnerDetail"]
+                },
+                {
+                    "name":"Contract", "pattern":"Contract", "target":["Contract"]
+                },
+                {
+                    "name":"ContractAdd", "pattern":"Contract/Create", "target":["ContractAdd"]
+                },
+                {
+                    "name":"ContractDetail", "pattern":"Contract/Detail/{id}", "target":["ContractDetail"]
+                },
+                {
+                    "name":"KontrakPartner", "pattern":"KontrakPartner", "target":["KontrakPartner"]
+                },
+                {
+                    "name":"KontrakPartnerAdd", "pattern":"KontrakPartner/Create", "target":["KontrakPartnerAdd"]
+                },
+                {
+                    "name":"KontrakPartnerDetail", "pattern":"KontrakPartner/Detail/{id}", "target":["KontrakPartnerDetail"]
+                },
+                {
+                    "name":"KontrakView", "pattern":"KontrakView", "target":["KontrakView"]
+                },
+                {
+                    "name":"KontrakViewDetail", "pattern":"KontrakView/Detail/{id}", "target":["KontrakViewDetail"]
+                }
+            ],
+            "targets": {
+                "Home": {
+                    "viewId": "Home",
+                    "viewName": "Home"
+                },
+                "Order": {
+                    "viewId": "Order",
+                    "viewName": "Order"
+                },
+                "RegProduct": {
+                    "viewId":"RegProduct",
+                    "viewName":"registerproduct.RegProduct"
+                },
+                "RegProductAdd": {
+                    "viewId":"RegProductAdd",
+                    "viewName":"registerproduct.RegProductAdd"
+                },
+                "UnitAvailSea": {
+                    "viewId":"UnitAvailSea",
+                    "viewName":"unitavailsea.UnitAvailSea"
+                },
+                "UnitAvailSeaAdd": {
+                    "viewId":"UnitAvailSeaAdd",
+                    "viewName":"unitavailsea.UnitAvailSeaAdd"
+                },
+                "UnitAvailLand": {
+                    "viewId":"UnitAvailLand",
+                    "viewName":"unitavailland.UnitAvailLand"
+                },
+                "UnitAvailLandAdd": {
+                    "viewId":"UnitAvailLandAdd",
+                    "viewName":"unitavailland.UnitAvailLandAdd"
+                },
+                "JadwalVoyage": {
+                    "viewId":"JadwalVoyage",
+                    "viewName":"jadwalvoyage.JadwalVoyage"
+                },
+                "JadwalVoyageAdd": {
+                    "viewId":"JadwalVoyageAdd",
+                    "viewName":"jadwalvoyage.JadwalVoyageAdd"
+                },
+                "JadwalVoyageDetail": {
+                    "viewId":"JadwalVoyageDetail",
+                    "viewName":"jadwalvoyage.Detail"
+                },
+                "UnitAvailLandCall": {
+                    "viewId":"UnitAvailLandCall",
+                    "viewName":"unitavaillandcall.UnitAvailLandCall"
+                },
+                "UnitAvailLandCallAdd": {
+                    "viewId":"UnitAvailLandCallAdd",
+                    "viewName":"unitavaillandcall.Create"
+                },
+                "UnitAvailLandCallDetail": {
+                    "viewId":"UnitAvailLandCallDetail",
+                    "viewName":"unitavaillandcall.Detail"
+                },
+                "Customer": {
+                    "viewId":"Customer",
+                    "viewName":"customer.Customer"
+                },
+                "CustomerAdd": {
+                    "viewId":"CustomerAdd",
+                    "viewName":"customer.Create"
+                },
+                "CustomerDetail": {
+                    "viewId":"CustomerDetail",
+                    "viewName":"customer.Detail"
+                },
+                "Rute": {
+                    "viewId":"Rute",
+                    "viewName":"rute.Rute"
+                },
+                "RuteAdd": {
+                    "viewId":"RuteAdd",
+                    "viewName":"rute.Create"
+                },
+                "RuteDetail": {
+                    "viewId":"RuteDetail",
+                    "viewName":"rute.Detail"
+                },
+                "Zone": {
+                    "viewId":"Zone",
+                    "viewName":"zone.Zone"
+                },
+                "ZoneAdd": {
+                    "viewId":"ZoneAdd",
+                    "viewName":"zone.Create"
+                },
+                "ZoneDetail": {
+                    "viewId":"ZoneDetail",
+                    "viewName":"zone.Detail"
+                },
+                "TipeUnitProduk": {
+                    "viewId":"TipeUnitProduk",
+                    "viewName":"tipeunitproduk.TipeUnitProduk"
+                },
+                "TipeUnitProdukAdd": {
+                    "viewId":"TipeUnitProdukAdd",
+                    "viewName":"tipeunitproduk.Create"
+                },
+                "TipeUnitProdukDetail": {
+                    "viewId":"TipeUnitProdukDetail",
+                    "viewName":"tipeunitproduk.Detail"
+                },
+                "TipeLayanan": {
+                    "viewId":"TipeLayanan",
+                    "viewName":"tipelayanan.TipeLayanan"
+                },
+                "TipeLayananAdd": {
+                    "viewId":"TipeLayananAdd",
+                    "viewName":"tipelayanan.Create"
+                },
+                "TipeLayananDetail": {
+                    "viewId":"TipeLayananDetail",
+                    "viewName":"tipelayanan.Detail"
+                },
+                "Pricebook": {
+                    "viewId":"Pricebook",
+                    "viewName":"pricebook.Pricebook"
+                },
+                "PricebookAdd": {
+                    "viewId":"PricebookAdd",
+                    "viewName":"pricebook.Create"
+                },
+                "PricebookDetail": {
+                    "viewId":"PricebookDetail",
+                    "viewName":"pricebook.Detail"
+                },
+                "TipeTarif": {
+                    "viewId":"TipeTarif",
+                    "viewName":"tipetarif.TipeTarif"
+                },
+                "TipeTarifAdd": {
+                    "viewId":"TipeTarifAdd",
+                    "viewName":"tipetarif.Create"
+                },
+                "TipeTarifDetail": {
+                    "viewId":"TipeTarifDetail",
+                    "viewName":"tipetarif.Detail"
+                },
+                "Seller": {
+                    "viewId":"Seller",
+                    "viewName":"seller.Seller"
+                },
+                "SellerAdd": {
+                    "viewId":"SellerAdd",
+                    "viewName":"seller.Create"
+                },
+                "SellerDetail": {
+                    "viewId":"SellerDetail",
+                    "viewName":"seller.Detail"
+                },
+                "Partner": {
+                    "viewId":"Partner",
+                    "viewName":"partner.Partner"
+                },
+                "PartnerAdd": {
+                    "viewId":"PartnerAdd",
+                    "viewName":"partner.Create"
+                },
+                "PartnerDetail": {
+                    "viewId":"PartnerDetail",
+                    "viewName":"partner.Detail"
+                },
+                "Contract": {
+                    "viewId":"Contract",
+                    "viewName":"contract.Contract"
+                },
+                "ContractAdd": {
+                    "viewId":"ContractAdd",
+                    "viewName":"contract.Create"
+                },
+                "ContractDetail": {
+                    "viewId":"ContractDetail",
+                    "viewName":"contract.Detail"
+                },
+                "KontrakPartner": {
+                    "viewId":"KontrakPartner",
+                    "viewName":"kontrakpartner.KontrakPartner"
+                },
+                "KontrakPartnerAdd": {
+                    "viewId":"KontrakPartnerAdd",
+                    "viewName":"kontrakpartner.Create"
+                },
+                "KontrakPartnerDetail": {
+                    "viewId":"KontrakPartnerDetail",
+                    "viewName":"kontrakpartner.Detail"
+                },
+                "KontrakView": {
+                    "viewId":"KontrakView",
+                    "viewName":"kontrakview.KontrakView"
+                },
+                "KontrakViewDetail": {
+                    "viewId":"KontrakViewDetail",
+                    "viewName":"kontrakview.Detail"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "sap.ui.kotakota.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "sap-ui-kotakota"
+    }
+}

@@ -1,0 +1,193 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.seller.Create"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Add Seller">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Seller List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">    
+                                            <f:formElements>
+                                                <f:FormElement label="Penjual ID">
+                                                    <f:fields>
+                                                        <m:Input required="true" id="ID"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Pelanggan ID">
+                                                    <f:fields>                                                                                         
+                                                        <m:ComboBox items="{oCustomer>/value}" id="PelangganID" placeholder="Please Select">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oCustomer>ID}" key="{oCustomer>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Kategori Penjual">
+                                                    <f:fields>
+                                                        <m:Input  id="KategoriPenjual"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Deskripsi Penjual">
+                                                    <f:fields>
+                                                        <m:Input  id="DesckripsiPenjual"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Website">
+                                                    <f:fields>
+                                                        <m:Input  id="Website"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Logo">
+                                                    <f:fields>
+                                                        <m:Input   id="Logo"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tanggal Jadi Penjual">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy"  id="TanggalJadiPenjual"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Lisensi Khusus">
+                                                    <f:fields>
+                                                        <m:Input  id="LisensiKhusus"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        <f:FormContainer ariaLabelledBy="Title3">
+                                            <f:formElements>
+                                                <f:FormElement label="Active">
+                                                    <f:fields>
+                                                        <m:Select id="Active">
+                                                            <m:items>
+                                                                <core:Item text="Active" key="Y"/>
+                                                                <core:Item text="Inactive"  key="" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>    
+                                                <f:FormElement label="Nama Rek">
+                                                    <f:fields>
+                                                        <m:Input id="NamaRek"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="No Rek">
+                                                    <f:fields>
+                                                        <m:Input  id="NoRek"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Nama Bank">
+                                                    <f:fields>
+                                                        <m:Input   id="NamaBank"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Cabang Bank">
+                                                    <f:fields>
+                                                        <m:Input id="CabangBank"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Swift Code">
+                                                    <f:fields>
+                                                        <m:Input  id="SwiftCode"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Negara Bank">
+                                                    <f:fields>
+                                                        <m:Input id="NegaraBank"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Seller Rating">
+                                                    <f:fields>
+                                                        <m:Input  id="SellerRating"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Puas">
+                                                    <f:fields>
+                                                        <m:Input  id="Puas"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tidak Puas">
+                                                    <f:fields>
+                                                        <m:Input   id="TidakPuas"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Last Audit">
+                                                    <f:fields>
+                                                        <m:DatePicker valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" id="LastAudit"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Audit Note">
+                                                    <f:fields>
+                                                        <m:Input  id="AuditNote"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Pricebook No">
+                                                    <f:fields>
+                                                        <m:Input   id="PricebookNo"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Jumlah Klasifikasi">
+                                                    <f:fields>
+                                                        <m:Input   id="JumlahKlasifikasi"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Jumlah Kontrak">
+                                                    <f:fields>
+                                                        <m:Input id="JumlahKontrak"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Jumlah Partner">
+                                                    <f:fields>
+                                                        <m:Input  id="JumlahPartner"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Tarif Fee Tier">
+                                                    <f:fields>
+                                                        <m:Input   id="TarifFeeTier"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers> 
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:ToolbarSpacer/>
+				<m:Button type="Accept" text="Save" press="onSave">
+				</m:Button>
+				<m:Button type="Reject" text="Cancel" press="onBack">
+				</m:Button>
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

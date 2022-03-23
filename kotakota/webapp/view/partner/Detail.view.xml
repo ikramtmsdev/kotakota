@@ -1,0 +1,98 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.partner.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Partner Detail">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Partner List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>                                    
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2"> 
+                                                <f:FormElement label="FungsiPartner" visible="false">           
+                                                        <f:fields>
+                                                            <m:ComboBox visible="false" id="FungsiPartner" selectedKey="{FungsiPartner}" placeholder="Please Select">
+                                                                <m:items>
+                                                                    <core:Item text="Driver" key="Driver"/>
+                                                                </m:items>
+                                                            </m:ComboBox>
+                                                        </f:fields>
+                                                    </f:FormElement>   
+                                                <f:formElements>
+                                                <f:FormElement label="Partner ID">
+                                                    <f:fields>
+                                                        <m:Text text="{ID}"/>
+                                                        <m:Input id="ID" value="{ID}" visible="false"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Penjual ID">
+                                                    <f:fields>                                       
+                                                        <m:ComboBox items="{oPenjual>/value}" editable="false" required="true" selectedKey="{PenjualID}" id="PenjualID">                                
+                                                            <m:items>                                                                                                
+                                                                <core:Item text="{oPenjual>ID}" key="{oPenjual>ID}"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Deskripsi">
+                                                    <f:fields>
+                                                        <m:Input id="Deskripsi"  editable="false" value="{Deskripsi}"/>
+                                                    </f:fields>
+                                                </f:FormElement>                                   
+                                                <f:FormElement label="Partner Note" id="lPartnerNote">
+                                                    <f:fields>
+                                                        <m:TextArea id="PartnerNote"  editable="false" value="{PartnerNote}"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Active"  id="lActive">
+                                                    <f:fields>
+                                                        <m:ComboBox id="Active"  editable="false" selectedKey="{Active}">
+                                                            <m:items>
+                                                                <core:Item text="Active" key="Y"/>
+                                                                <core:Item text="Inactive" key="N"/>
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement>                                 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers>
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:Button type="Accept" text="Edit" press="onEdit" />
+                    <m:ToolbarSpacer/>
+                    <m:Button type="Accept" id="btnSave" enabled="false" text="Save" press="onSave" />
+                    <m:Button type="Reject" id="btnCancel" enabled="false" text="Cancel" press="onBack" />
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

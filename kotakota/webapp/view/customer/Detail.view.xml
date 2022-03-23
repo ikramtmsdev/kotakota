@@ -1,0 +1,194 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.customer.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Customer Detail">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Customer List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">    
+                                            <f:formElements>
+                                                <f:FormElement label="ID">
+                                                    <f:fields>
+                                                        <m:Text text="{ID}"/>
+                                                        <m:Input id="ID" value="{ID}" visible="false"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Nama">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{Nama}" required="true" placeholder="Type here..." id="Nama"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Email">
+                                                    <f:fields>
+                                                        <m:Input editable="false" type="Email" value="{Email}" required="true" placeholder="Type here..." id="Email"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="TipePelanggan">
+                                                    <f:fields>
+                                                        <m:ComboBox editable="false" id="TipePelanggan"  placeholder="Please Select" selectedKey="{TipePelanggan}">
+                                                            <m:items>
+                                                                <core:Item text="COM" key="COM"/>
+                                                                <core:Item text="INV"  key="INV" />
+                                                            </m:items>
+                                                        </m:ComboBox>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="TanggalDaftar">
+                                                    <f:fields>
+                                                        <m:DatePicker editable="false"  valueFormat="yyyy-MM-dd" displayFormat="dd MMM yyyy" placeholder="Please Select"  value="{TanggalDaftar}" id="TanggalDaftar"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Industri">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{Industri}" id="Industri" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="NIB">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{NIB}" id="NIB" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="IdNo">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{IdNo}" id="IdNo" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="TipeID">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{TipeID}" id="TipeID" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Pekerjaan">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{Pekerjaan}" id="Pekerjaan" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="NoHp">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{NoHp}" id="NoHp" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="NoTelp">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{NoTelp}" id="NoTelp" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Alamat">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{Alamat}" id="Alamat" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="KodePos">
+                                                    <f:fields>
+                                                        <m:Input editable="false" value="{KodePos}" id="KodePos" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        <f:FormContainer ariaLabelledBy="Title3">
+                                            <f:formElements>
+                                                <f:FormElement label="Active">
+                                                    <f:fields>
+                                                        <m:Select editable="false"  id="Active" required="true" selectedKey="{Active}">
+                                                            <m:items>
+                                                                <core:Item text="Active" key="Y"/>
+                                                                <core:Item text="Inactive"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>                                
+                                                <f:FormElement label="KodeRef">
+                                                    <f:fields>
+                                                        <m:Input editable="false"  value="{KodeRef}" id="KodeRef" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="NamaRek">
+                                                    <f:fields>
+                                                        <m:Input editable="false"  value="{NamaRek}" id="NamaRek" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="NoRek">
+                                                    <f:fields>
+                                                        <m:Input editable="false"  value="{NoRek}" id="NoRek" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="NamaBank">
+                                                    <f:fields>
+                                                        <m:Input editable="false"  value="{NamaBank}" id="NamaBank" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="CabangBank">
+                                                    <f:fields>
+                                                        <m:Input editable="false"  value="{CabangBank}" id="CabangBank" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="SwiftCode">
+                                                    <f:fields>
+                                                        <m:Input editable="false"  value="{SwiftCode}" id="SwiftCode" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="NegaraBank">
+                                                    <f:fields>
+                                                        <m:Input editable="false"  value="{NegaraBank}" id="NegaraBank" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="NoNpwp">
+                                                    <f:fields>
+                                                        <m:Input editable="false"  value="{NoNpwp}" id="NoNpwp" placeholder="Type here..."/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="StatusPajak">
+                                                    <f:fields>
+                                                        <m:Select editable="false"  id="StatusPajak" required="true" selectedKey="{StatusPajak}">
+                                                            <m:items>
+                                                                <core:Item text="PKP" key="PKP"/>
+                                                                <core:Item text="NON PKP"  key="NON" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers> 
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:Button type="Accept" text="Edit" press="onEdit" />
+                    <m:ToolbarSpacer/>
+                    <m:Button type="Accept" id="btnSave" enabled="false" text="Save" press="onSave" />
+                    <m:Button type="Reject" id="btnCancel" enabled="false" text="Cancel" press="onBack" />
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

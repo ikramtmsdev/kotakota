@@ -1,0 +1,199 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.tipeunitproduk.Create"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form">
+    	<m:Page>
+        <m:headerContent>
+            <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                <l:content>
+                    <m:Breadcrumbs currentLocationText="Add Tipe Unit Produk">
+                        <m:Link text="Master Management"/>
+                        <m:Link press="onBack" text="Tipe Unit Produk List"/>
+                    </m:Breadcrumbs>
+                </l:content>
+            </l:VerticalLayout>
+        </m:headerContent>
+        <uxap:ObjectPageLayout>
+            <uxap:sections>
+                <uxap:ObjectPageSection>
+                    <uxap:subSections>
+                        <uxap:ObjectPageSubSection>
+                            <uxap:blocks>
+                                <f:Form id="formContainer" editable="true" ariaLabelledBy="Title1">
+                                    <f:layout>
+                                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+                                    </f:layout>
+                                    <f:formContainers>                        
+                                        <f:FormContainer ariaLabelledBy="Title2">    
+                                            <f:formElements>
+                                                <f:FormElement label="ID">
+                                                    <f:fields>
+                                                        <m:Input required="true" placeholder="Type here..." id="ID"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Produk Group">
+                                                    <f:fields>
+                                                        <m:Input required="true" placeholder="Type here..." id="ProdukGroup"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Unit Kategori">
+                                                    <f:fields>
+                                                        <m:Input required="true" placeholder="Type here..." id="UnitKategori"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Jenis Muatan Kelas">
+                                                    <f:fields>
+                                                        <m:Input required="true" placeholder="Type here..." id="JenisMuatanKelas"/>
+                                                    </f:fields>
+                                                </f:FormElement> 
+                                                <f:FormElement label="Unit Tipe">
+                                                    <f:fields>
+                                                        <m:Input required="true" placeholder="Type here..." id="UnitTipe"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Unit Deskripsi">
+                                                    <f:fields>
+                                                        <m:TextArea  placeholder="Type here..." id="UnitDeskripsi"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="GOL. Tol">
+                                                    <f:fields>
+                                                        <m:Input placeholder="Type here..." id="GOLTol"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="GOL. Laut">
+                                                    <f:fields>
+                                                        <m:Input placeholder="Type here..." id="GOLLaut"/>
+                                                    </f:fields>
+                                                </f:FormElement>                               
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                        <f:FormContainer ariaLabelledBy="Title3">
+                                            <f:formElements>
+                                                <f:FormElement label="Active">
+                                                    <f:fields>
+                                                        <m:Select id="Active">
+                                                            <m:items>
+                                                                <core:Item text="Active" key="Y"/>
+                                                                <core:Item text="Inactive"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>                                
+                                                <f:FormElement label="UOM">
+                                                    <f:fields>
+                                                        <m:Input type="Number" placeholder="Type here..." id="uom"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Kapasitas KG">
+                                                    <f:fields>
+                                                        <m:Input  type="Number" placeholder="Type here..." id="KapasitasKG"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Kapasitas CBM">
+                                                    <f:fields>
+                                                        <m:Input type="Number" placeholder="Type here..." id="KapasitasCBM"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Dimensi Panjang">
+                                                    <f:fields>
+                                                        <m:Input type="Number" placeholder="Type here..." id="DimensiPanjang"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Dimensi Lebar">
+                                                    <f:fields>
+                                                        <m:Input type="Number" placeholder="Type here..." id="DimensiLebar"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Dimensi Tinggi">
+                                                    <f:fields>
+                                                        <m:Input type="Number" placeholder="Type here..." id="DimensiTinggi"/>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="LumpSum">
+                                                    <f:fields>
+                                                        <m:Select id="LumpSum">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="KM">
+                                                    <f:fields>
+                                                        <m:Select id="KM">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="KG">
+                                                    <f:fields>
+                                                        <m:Select id="KG">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="CBM">
+                                                    <f:fields>
+                                                        <m:Select id="CBM">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Rate">
+                                                    <f:fields>
+                                                        <m:Select id="Rate">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                                <f:FormElement label="Konversi CBKG">
+                                                    <f:fields>
+                                                        <m:Select id="KonversiCBKG">
+                                                            <m:items>
+                                                                <core:Item text="YES" key="Y"/>
+                                                                <core:Item text="NO"  key="N" />
+                                                            </m:items>
+                                                        </m:Select>
+                                                    </f:fields>
+                                                </f:FormElement>
+                                            </f:formElements>
+                                        </f:FormContainer>
+                                    </f:formContainers>
+                                </f:Form> 
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                    </uxap:subSections>
+                </uxap:ObjectPageSection>
+            </uxap:sections>
+        </uxap:ObjectPageLayout>
+        <m:footer>
+			<m:OverflowToolbar id="otbFooter">
+				<m:ToolbarSpacer/>
+				<m:Button type="Accept" text="Save" press="onSave">
+				</m:Button>
+				<m:Button type="Reject" text="Cancel" press="onBack">
+				</m:Button>
+			</m:OverflowToolbar>
+		</m:footer>
+	</m:Page>
+</mvc:View>

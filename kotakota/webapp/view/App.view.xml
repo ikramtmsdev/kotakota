@@ -1,0 +1,58 @@
+<mvc:View
+    controllerName="sap.ui.kotakota.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+>
+     <tnt:ToolPage id="app">
+        <tnt:header>
+            <tnt:ToolHeader>
+                <tnt:content>
+                    <Button text="Kotakota.id" icon="sap-icon://menu2"
+		                press=".onSideNavButtonPress"></Button>
+                    <ToolbarSpacer></ToolbarSpacer>
+                    <Button text="right side button"></Button>
+                </tnt:content>
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation id="sideNavigation" itemSelect="onItemSelect">
+                <tnt:NavigationList>
+                    <tnt:NavigationListItem text="Home" key="Home" icon="sap-icon://home"></tnt:NavigationListItem>
+                    <tnt:NavigationListItem text="Order Management" expanded="false"  icon="sap-icon://sales-order">
+                        <tnt:NavigationListItem text="Order List" key="Order"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Billing List" key="Billing"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Payment Report" key="Payment"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Confirm/Reject Order" key="Order"></tnt:NavigationListItem>
+                    </tnt:NavigationListItem>
+                    <tnt:NavigationListItem text="Dispatch Management" expanded="false" icon="sap-icon://shipping-status">
+                        <tnt:NavigationListItem text="Dispatch Assignments" key="Dispatch"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Unit Availability Land" key="UnitAvailLand"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Unit Availability Sea" key="UnitAvailSea"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Unit Availability Land Call" key="UnitAvailLandCall"></tnt:NavigationListItem>
+                    </tnt:NavigationListItem>
+                    <tnt:NavigationListItem text="Master Management" expanded="false" icon="sap-icon://database">
+                        <tnt:NavigationListItem text="Customer" key="Customer"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Seller" key="Seller"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Partner" key="Partner"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Contract" key="Contract"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Contract View" key="KontrakView"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Partner Contract" key="KontrakPartner"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Register Product" key="RegProduct"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Zone" key="Zone"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Rute" key="Rute"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Pricebook" key="Pricebook"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Tipe Tarif" key="TipeTarif"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Tipe Layanan" key="TipeLayanan"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Tipe Unit Produk" key="TipeUnitProduk"></tnt:NavigationListItem>
+                        <tnt:NavigationListItem text="Jadwal Voyage" key="JadwalVoyage"></tnt:NavigationListItem>
+                    </tnt:NavigationListItem>
+                </tnt:NavigationList>
+            </tnt:SideNavigation>   
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <App id="mainContents"></App>
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:View>
